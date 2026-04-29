@@ -17,6 +17,7 @@
     "test:smoke": "tsx scripts/package-smoke.ts",
     "verify:fresh": "tsx scripts/verify-fresh.ts",
     "typecheck": "npm run build:packages && npm run typecheck --workspaces --if-present",
+    "postinstall": "npm run db:generate",
     "db:push": "npm run db:push -w apps/web",
     "db:generate": "npm run db:generate -w apps/web"
   },
