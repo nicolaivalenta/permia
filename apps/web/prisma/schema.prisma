@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AuditEvent {
+  id          String   @id
+  intent      String
+  actor       String
+  risk        String
+  status      String
+  summary     String
+  payload     String
+  createdAt   DateTime @default(now())
+}
+
+model UsageEvent {
+  id        String   @id
+  endpoint  String
+  status    String
+  metadata  String
+  createdAt DateTime @default(now())
+}
+
+model ToolIdentity {
+  id        String   @id
+  vendor    String
+  name      String
+  signature String?
+  status    String
+  metadata  String
+  createdAt DateTime @default(now())
+}
+
+model PreflightContract {
+  id          String   @id
+  planId      String
+  status      String
+  contract    String
+  violations  String?
+  createdAt   DateTime @default(now())
+}
+
+model Incident {
+  id          String   @id
+  severity    String
+  title       String
+  timeline    String
+  remediation String
+  createdAt   DateTime @default(now())
+}

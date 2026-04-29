@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@source not "../../teardown";
+
+:root {
+  --background: #040406;
+  --foreground: #f7f8fb;
+  --muted: #9da8b8;
+  --panel: #080a0d;
+  --panel-2: #0d1117;
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #7fb0ff;
+  --accent-2: #dce5f2;
+  --danger: #df3b45;
+  --warn: #c78618;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #040406;
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), "Helvetica Neue", Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.hero-grid {
+  background:
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, #05070a 0%, #111722 100%);
+  background-size: 96px 72px, 96px 72px, 100% 100%;
+}
+
+.hero-frame {
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.45);
+}
+
+.card-shadow {
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.25);
+}
+
+.purple-gradient {
+  background: linear-gradient(135deg, #05070a 0%, #111722 100%);
+}
+
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #080a0d;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+}
+
+.hairline {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.scrollbar-thin {
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
