@@ -4,8 +4,19 @@ import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+type AuditListItem = {
+  id: string;
+  intent: string;
+  actor: string;
+  status: string;
+};
+
 export default async function AuditsPage() {
-  const audits = await prisma.auditEvent.findMany({ orderBy: { createdAt: "desc" }, take: 30 });
+  const audits: AuditListItem[] = await prisma.auditEvent.findMany({
+    orderBy: { createdAt: "desc" },
+    select: { id: true, intent: true, actor: true, status: true },
+    take: 30,
+  });
   return (
     <PageShell title="Audit ledger" summary="Every intent plan gets a replayable record: actor, status, gates, simulation, context pack, and policy rationale.">
       <div className="grid gap-3">
